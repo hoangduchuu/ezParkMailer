@@ -18,7 +18,7 @@ function mailing(){
 
 		$.ajax({
         type : 'POST', //kiểu post
-        url  : 'http://quangbinhxanh.com/mail/sender.php', //gửi dữ liệu sang trang submit.php
+        url  : 'http://phongnhatourist.com/test/sender.php', //gửi dữ liệu sang trang submit.php
         data : data,
         success :  function(data)
                {                       
@@ -36,6 +36,7 @@ function mailing(){
 
         return false;
 }
+
 function clickSendMail(){
 
 		$(".huu").click(function() {

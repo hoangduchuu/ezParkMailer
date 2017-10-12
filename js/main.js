@@ -48,55 +48,7 @@
   $(contactForm).submit(formSubmitHandler);
 
   function formSubmitHandler(event) {
-    // event.preventDefault();
-    var formData = $(contactForm).serialize();
-    var email = $("#email").val();
-    var subject = $('#subject').val();
-    var note = $('#note').val();
-    var buttonSubmit = $(contactForm).find(".btn-send");
-
-    if (validateEmail(email)) {
-      $(buttonSubmit).prop('disabled', true);
-      $(buttonSubmit).addClass("loading");
-      $('#myModal').modal('show');
-
-      var data = {
-    	    "fromAddress": email,
-    	    "toAddress": "support@ezpark.vn",
-    	    "subject": subject,
-    	    "content": note
-    	};
-
-      debugger;
-
-      $.ajax({
-        type: 'POST',
-        url: 'http://mail.zoho.com/api/accounts/3317580000000008001/messages',
-        data: data,
-        dataType: 'application/json',
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader('Authorization', 'Zoho-authtoken 7f7dd8c696d5a35407caca08c4e398f5')
-        },
-        success: function (rps) {
-          debugger;
-        }
-
-      })
-
-      $('#myModal').on('hidden.bs.modal', function () {
-        $(buttonSubmit).prop('disabled', false);
-        $(buttonSubmit).removeClass("loading");
-        $('#name').val('');
-        $('#email').val('');
-        $('#subject').val('');
-        $('#note').val('');
-      });
-
-    }else {
-      console.log("Email is not valid");
-      $(buttonSubmit).prop('disabled', false);
-      $(buttonSubmit).removeClass("loading");
-    }
+    event.preventDefault();
   }
 
   function validateEmail(email) {
