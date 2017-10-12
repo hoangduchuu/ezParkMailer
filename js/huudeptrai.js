@@ -18,7 +18,7 @@ function mailing(){
 
 		$.ajax({
         type : 'POST', //kiểu post
-        url  : 'sender.php', //gửi dữ liệu sang trang submit.php
+        url  : 'http://quangbinhxanh.com/mail/sender.php', //gửi dữ liệu sang trang submit.php
         data : data,
         success :  function(data)
                {                       
